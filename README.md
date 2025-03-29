@@ -12,3 +12,6 @@ Ensure that ffmpeg and oggenc2 are in your system's PATH for these scripts to fu
 
 # Features
 You can successfully play custom SNS files with vgmstream. However, further work is needed to enable them for in-game use.
+
+# Contributions
+Feel free to update and improve the original code, especially if you're able to make it work for in-game use or fix any issues.
