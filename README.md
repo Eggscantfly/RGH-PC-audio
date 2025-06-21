@@ -1,8 +1,8 @@
 # RGH-PC-Audio
 Python scripts designed for extracting and reimporting custom audio for RGH.
 
-# LyN_Extract
-Usage: Python Lyn_Extract.py input.sns output.wav
+# Lyn_Extractor
+Usage: Python Lyn_Extractor.py input.sns output.wav
 
 # LyN_Reimport
 Usage: Python Lyn_Reimport.py input.sns input.wav output.sns
