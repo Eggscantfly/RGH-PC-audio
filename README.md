@@ -2,12 +2,15 @@
 Python scripts designed for extracting and reimporting custom audio for RGH.
 
 # LyN_Extractor
-Usage: Python Lyn_Extractor.py input.sns output.wav
+Usage: Run the script and select an input `.sns` file via file explorer. It will export a WAV file.
 
-# LyN_Reimport
-Usage: Python Lyn_Reimport.py input.sns input.wav output.sns
-Note: `Lyn_Reimport.py` currently supports only Ogg Vorbis-encoded SNS files
-(codec IDs `0x3156` and `0x3157`).
+# LyN_Reimport (V2)
+Usage: Run the script and select a `.wav` file when prompted. The new SNS will be saved using file explorer.
+
+Note: `Lyn_Reimport.py` V2 now uses a fixed header layout and no longer requires an original input `.sns` file.
+It currently supports only Ogg Vorbis-encoded SNS files (codec IDs `0x3156` and `0x3157`).
+
+I will be keeping the old version (`V1`) for anyone who still wants or needs the original method that uses a reference `.sns`.
 
 # Requirements
 Ensure that ffmpeg and oggenc2 are in your system's PATH for these scripts to function properly.
