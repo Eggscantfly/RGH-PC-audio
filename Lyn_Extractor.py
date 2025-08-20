@@ -133,15 +133,29 @@ def extract_lyn_audio(input_path, output_path):
                 'ffmpeg',
                 '-y',
                 '-hide_banner',
-                '-loglevel', 'error',
-                '-i', temp_files[0],
-                '-i', temp_files[1],
-                '-filter_complex', '[0:a][1:a]join=inputs=2:channel_layout=stereo[a]',
-                '-map', '[a]',
-                '-ar', str(file_info['sample_rate']),
-                '-c:a', 'pcm_s16le',
-                output_path
+                '-loglevel', 'error'
             ]
+
+            for tf in temp_files:
+                ffmpeg_cmd.extend(['-i', tf])
+
+            if file_info['channels'] == 1:
+                ffmpeg_cmd.extend([
+                    '-ar', str(file_info['sample_rate']),
+                    '-c:a', 'pcm_s16le',
+                    output_path
+                ])
+            else:
+                inputs = ''.join(f'[{i}:a]' for i in range(file_info['channels']))
+                filter_complex = f'{inputs}amerge=inputs={file_info["channels"]}[a]'
+                ffmpeg_cmd.extend([
+                    '-filter_complex', filter_complex,
+                    '-map', '[a]',
+                    '-ac', str(file_info['channels']),
+                    '-ar', str(file_info['sample_rate']),
+                    '-c:a', 'pcm_s16le',
+                    output_path
+                ])
             
             print("Running FFmpeg command:")
             print(' '.join(ffmpeg_cmd))
