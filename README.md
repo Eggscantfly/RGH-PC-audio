@@ -1,3 +1,6 @@
+# This Github Repository has been Archived a newer and better app is located here.
+https://github.com/Eggscantfly/Rabbids-Go-Home-SNS-Audio-Converter
+
 # RGH-PC-Audio
 Python scripts designed for extracting and reimporting custom audio for RGH.
 
